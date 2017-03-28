@@ -1,0 +1,45 @@
+
+Clover EFI installer log - Sun Mar 26 12:23:30 PDT 2017
+Installer version: v2.4k r4035 EFI bootloader
+======================================================
+/dev/disk0
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *250.1 GB   disk0
+   1:               Windows_NTFS                         250.1 GB   disk0s1
+/dev/disk1
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *750.2 GB   disk1
+   1:               Windows_NTFS F Fisiere               750.2 GB   disk1s1
+/dev/disk2
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *320.1 GB   disk2
+   1:                        EFI                         209.7 MB   disk2s1
+   2:                  Apple_HFS Untitled                319.2 GB   disk2s2
+   3:                 Apple_Boot Recovery HD             650.0 MB   disk2s3
+/dev/disk3
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *31.0 GB    disk3
+   1:                        EFI EFI                     209.7 MB   disk3s1
+   2:                  Apple_HFS OSX Flash Drive         30.7 GB    disk3s2
+======================================================
+Backing up EFI files
+
+No Active Partition
+
+Stage 0 - Writting boot0ss to /dev/disk3
+/Volumes/OSX Flash Drive/usr/local/bin/fdisk440 -u -f /Volumes/OSX Flash Drive/usr/standalone/i386/boot0ss -y /dev/disk3
+
+Stage 1 - Writting boot1f32 to /dev/rdisk3s1
+dd if=/dev/rdisk3s1 count=1 bs=512 of=/tmp/origbs
+boot volume format is FAT32
+cp /tmp/boot1f32 /tmp/newbs
+dd if=/tmp/origbs of=/tmp/newbs skip=3 seek=3 bs=1 count=87 conv=notrunc
+dd if=/tmp/newbs of=/dev/rdisk3s1
+
+Stage 2 - Written boot6 (x64) to /Volumes/EFI 1/boot
+
+Theme 'metal' (defined in config.plist) not found !
+Using default theme 'BGM'
+======================================================
+=========== Clover EFI Installation Finish ===========
+======================================================
