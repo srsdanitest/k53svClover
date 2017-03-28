@@ -60,10 +60,6 @@
 		<array>
 			<dict>
 				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
 				<string>Cpu0Ist</string>
@@ -73,6 +69,10 @@
 				<string>SSDT</string>
 				<key>TableId</key>
 				<string>CpuPm</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
 			</dict>
 		</array>
 		<key>HaltEnabler</key>
@@ -189,37 +189,53 @@
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
-	<key>Comment</key>
-	<string>Trim enable SSD</string>
-	<key>Disabled</key>
-	<false/>
-	<key>Find</key>
-	<data>AEFQUExFIFNTRAA=</data>
-	<key>Name</key>
-	<string>IOAHCIBlockStorage</string>
-	<key>Replace</key>
-	<data>AAAAAAAAAAAAAAA=</data>
-</dict>
-<dict>
-	<key>Name</key>
-	<string>AppleIntelSNBGraphicsFB</string>
-	<key>Find</key>
-	<data>AgUAAAAEAAAHAAAA</data>
-	<key>Replace</key>
-	<data>AgUAAAAIAAAGAAAA</data>
-	<key>Comment</key>
-	<string>10.10-SNB-Port _0x5-DP2HDMI</string>
-</dict>
-<dict>
-	<key>Name</key>
-	<string>AppleIntelSNBGraphicsFB</string>
-	<key>Find</key>
-	<data>AwQAAAAEAAAJAAAA</data>
-	<key>Replace</key>
-	<data>AwQAAAAIAAAGAAAA</data>
-	<key>Comment</key>
-	<string>10.10-SNB-Port _0x6-DP2HDMI</string>
-</dict>
+				<key>Comment</key>
+				<string>10.10-SNB-Port _0x5-DP2HDMI</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AgUAAAAEAAAHAAAA
+				</data>
+				<key>Name</key>
+				<string>AppleIntelSNBGraphicsFB</string>
+				<key>Replace</key>
+				<data>
+				AgUAAAAIAAAGAAAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.10-SNB-Port _0x6-DP2HDMI</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AwQAAAAEAAAJAAAA
+				</data>
+				<key>Name</key>
+				<string>AppleIntelSNBGraphicsFB</string>
+				<key>Replace</key>
+				<data>
+				AwQAAAAIAAAGAAAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Trim enable SSD</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AEFQUExFIFNTRAA=
+				</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>
+				AAAAAAAAAAAAAAA=
+				</data>
+			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
